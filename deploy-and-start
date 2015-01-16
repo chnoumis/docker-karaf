@@ -1,0 +1,21 @@
+#!/bin/sh
+
+erb /opt/chnoumis/apache-karaf-${KARAF_VERSION}/build/etc/users.properties.erb > /opt/chnoumis/apache-karaf-${KARAF_VERSION}/etc/users.properties
+
+DIR=${DEPLOY_DIR:-/opt/chnoumis/deploy}
+
+cp -rf $DIR/fabric8/etc/* /opt/chnoumis/karaf/etc/
+
+echo "Copying offline repo"
+cp -rf $DIR/fabric8/repository/* /opt/chnoumis/karaf/system/
+echo "Checking for kars in $DIR/kars"
+if [ -d $DIR ]; then
+  for i in $DIR/*.kar; do
+     file=$(basename $i)
+     echo "Linking $i --> /opt/chnoumis/karaf/deploy/$file"
+     ln -s $i /opt/chnoumis/karaf/deploy/$file
+  done
+fi
+# Use faster (though more unsecure) random number generator
+export KARAF_OPTS="$KARAF_OPTS -Djava.security.egd=file:/dev/./urandom"
+/opt/chnoumis/karaf/bin/karaf server
