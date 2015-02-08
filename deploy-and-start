@@ -1,10 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 
 erb /opt/chnoumis/apache-karaf-${KARAF_VERSION}/build/etc/users.properties.erb > /opt/chnoumis/apache-karaf-${KARAF_VERSION}/etc/users.properties
 
 DIR=${DEPLOY_DIR:-/opt/chnoumis/deploy}
 
-cp -rf $DIR/fabric8/etc/* /opt/chnoumis/karaf/etc/
+cd $DIR/fabric8/etc
+
+for i in * ; do
+  if [[ ${i: -4} == ".erb" ]]; then
+    erb $i > /opt/chnoumis/karaf/etc/${i%.*}
+  else
+    cp $i /opt/chnoumis/karaf/etc/$i
+  fi
+done
 
 echo "Copying offline repo"
 cp -rf $DIR/fabric8/repository/* /opt/chnoumis/karaf/system/
