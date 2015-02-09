@@ -34,4 +34,6 @@ ENV KARAF_OPTS -javaagent:/opt/chnoumis/karaf/jolokia-agent.jar=host=0.0.0.0,por
 ENV KARAF_HOME /opt/chnoumis/karaf
 ENV PATH $PATH:$KARAF_HOME/bin
 
+USER root
+
 CMD ["/usr/bin/sti-helper"]
