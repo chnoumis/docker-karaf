@@ -30,7 +30,7 @@ RUN wget http://central.maven.org/maven2/org/jolokia/jolokia-jvm/1.2.2/jolokia-j
 # Remove unneeded apps
 RUN rm -rf /opt/chnoumis/karaf/deploy/README 
 
-ENV KARAF_OPTS -javaagent:/opt/chnoumis/karaf/jolokia-agent.jar=host=0.0.0.0,port=8778,authMode=jaas,realm=karaf,user=admin,password=admin,agentId=$HOSTNAME
+ENV KARAF_OPTS -javaagent:/opt/chnoumis/karaf/jolokia-agent.jar=host=0.0.0.0,port=8778,authMode=jaas,realm=karaf,user=admin,password=$ADMIN_PASSWORD,agentId=$HOSTNAME
 ENV KARAF_HOME /opt/chnoumis/karaf
 ENV PATH $PATH:$KARAF_HOME/bin
 
