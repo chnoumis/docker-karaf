@@ -7,6 +7,14 @@ EXPOSE 8181 8101 8778
 ENV KARAF_VERSION 3.0.2
 ENV DEPLOY_DIR /opt/chnoumis/deploy
 
+USER root
+# Install fonts
+RUN \
+  echo "deb http://http.debian.net/debian jessie contrib" >> /etc/apt/sources.list && \
+  apt-get update && \
+  echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections && \
+  apt-get install -y ttf-mscorefonts-installer
+
 USER chnoumis
 
 RUN wget http://archive.apache.org/dist/karaf/${KARAF_VERSION}/apache-karaf-${KARAF_VERSION}.tar.gz -O /tmp/karaf.tar.gz
