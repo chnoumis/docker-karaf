@@ -1,6 +1,7 @@
 #!/bin/bash
 
 erb /opt/chnoumis/apache-karaf-${KARAF_VERSION}/build/etc/users.properties.erb > /opt/chnoumis/apache-karaf-${KARAF_VERSION}/etc/users.properties
+cp -f /opt/chnoumis/apache-karaf-${KARAF_VERSION}/build/bin/setenv /opt/chnoumis/apache-karaf-${KARAF_VERSION}/bin/setenv
 
 DIR=${DEPLOY_DIR:-/opt/chnoumis/deploy}
 
