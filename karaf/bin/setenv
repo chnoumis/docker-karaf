@@ -24,7 +24,7 @@
 #   Actions go here...
 # fi
 
-JAVA_MAX_MEM=1G
+JAVA_MAX_MEM=${JAVA_MAX_MEM}
 
 #
 # general settings which should be applied for all scripts go here; please keep
