@@ -33,7 +33,7 @@ ADD ./usage /usr/bin/
 ADD ./deploy-and-start /usr/bin/
 
 # jolokia agent
-RUN wget http://central.maven.org/maven2/org/jolokia/jolokia-jvm/1.2.2/jolokia-jvm-1.2.2-agent.jar -O /opt/chnoumis/karaf/jolokia-agent.jar
+RUN wget http://central.maven.org/maven2/org/jolokia/jolokia-jvm/1.3.1/jolokia-jvm-1.3.1-agent.jar -O /opt/chnoumis/karaf/jolokia-agent.jar
 
 # Remove unneeded apps
 RUN rm -rf /opt/chnoumis/karaf/deploy/README 
