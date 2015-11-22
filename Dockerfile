@@ -4,10 +4,11 @@ MAINTAINER chnoumis
 
 EXPOSE 8181 8101 8778
 
+USER root
+
+ENV HOME=/root
 ENV KARAF_VERSION 3.0.2
 ENV DEPLOY_DIR /deployments
-
-USER root
 
 RUN yum install -y wget ruby
 
