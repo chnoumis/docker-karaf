@@ -32,4 +32,4 @@ fi
 sed -i 's/^\(.*rootLogger.*\), *out *,/\1, stdout,/' ${DIR}/karaf/etc/org.ops4j.pax.logging.cfg
 
 # Launch Karaf using S2I script
-exec ${DIR}/deploy-and-run.sh
+exec /usr/local/s2i/run
