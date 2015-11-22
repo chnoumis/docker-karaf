@@ -37,7 +37,7 @@ ENV PATH $PATH:$KARAF_HOME/bin
 
 # Copy deploy-and-run.sh for standalone images
 # Necessary to permit running with a randomised UID
-ADD deploy-run.sh ${DEPLOY_DIR}
+COPY deploy-run.sh ${DEPLOY_DIR}/deploy-run.sh
 RUN chmod a+x ${DEPLOY_DIR}/deploy-run.sh \
  && chmod -R a+rwX ${DEPLOY_DIR}
 
