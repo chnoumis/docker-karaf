@@ -6,7 +6,7 @@ EXPOSE 8181 8101 8778
 
 USER root
 
-ENV KARAF_VERSION 3.0.2
+ENV KARAF_VERSION 3.0.5
 ENV DEPLOY_DIR /deployments
 
 RUN yum install -y wget ruby
