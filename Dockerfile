@@ -12,11 +12,8 @@ ENV DEPLOY_DIR /deployments
 RUN yum install -y wget ruby
 
 # Install fonts
-# RUN \
-#  echo "deb http://http.debian.net/debian jessie contrib" >> /etc/apt/sources.list && \
-#  apt-get update && \
-#  echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections && \
-#  apt-get install -y ttf-mscorefonts-installer
+RUN wget http://www.my-guides.net/en/images/stories/fedora12/msttcore-fonts-2.0-3.noarch.rpm
+RUN rpm -ivh msttcore-fonts-2.0-3.noarch.rpm
 
 RUN wget http://archive.apache.org/dist/karaf/${KARAF_VERSION}/apache-karaf-${KARAF_VERSION}.tar.gz -O /tmp/karaf.tar.gz
 
