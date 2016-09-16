@@ -12,8 +12,9 @@ ENV DEPLOY_DIR /deployments
 RUN yum install -y wget ruby
 
 # Install fonts
-RUN wget http://www.my-guides.net/en/images/stories/fedora12/msttcore-fonts-2.0-3.noarch.rpm
-RUN rpm -ivh msttcore-fonts-2.0-3.noarch.rpm
+#RUN wget http://www.my-guides.net/en/images/stories/fedora12/msttcore-fonts-2.0-3.noarch.rpm
+RUN wget http://ftp.pbone.net/mirror/olea.org/msttcore-fonts-2.0-6.noarch.rpm
+RUN rpm -ivh msttcore-fonts-2.0-6.noarch.rpm
 
 RUN wget http://archive.apache.org/dist/karaf/${KARAF_VERSION}/apache-karaf-${KARAF_VERSION}.tar.gz -O /tmp/karaf.tar.gz
 
