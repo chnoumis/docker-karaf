@@ -1,5 +1,4 @@
-#FROM fabric8/s2i-karaf:1.2.5
-FROM chnoumis/base-sti
+FROM fabric8/s2i-karaf:1.2.5
 
 MAINTAINER chnoumis
 
