@@ -5,7 +5,7 @@
 	<groupId>com.chnoumis.docker</groupId>
 	<artifactId>karaf</artifactId>
 	<name>karaf</name>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<build>
 		<plugins>
