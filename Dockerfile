@@ -39,9 +39,6 @@ COPY deploy-run.sh ${DEPLOY_DIR}/deploy-run.sh
 RUN chmod a+x ${DEPLOY_DIR}/deploy-run.sh \
  && chmod -R a+rwX ${DEPLOY_DIR}
 
-# Install certs
-RUN keytool -import -alias alias -noprompt -storepass changeit -keystore /usr/lib/jvm/java-1.8.0-openjdk/jre/lib/security/cacerts -file /etc/secrets/proxycert
-
 # S2I requires a numeric, non-0 UID
 USER 1000
 
