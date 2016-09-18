@@ -31,12 +31,5 @@ fi
 # send log output to stdout
 sed -i 's/^\(.*rootLogger.*\), *out *,/\1, stdout,/' ${DIR}/karaf/etc/org.ops4j.pax.logging.cfg
 
-# Install certs
-if [ -f "/etc/secrets/proxycert" ];
-then
-  echo "Install Certificates"
-  keytool -import -alias alias -noprompt -storepass changeit -keystore /usr/lib/jvm/java-1.8.0-openjdk/jre/lib/security/cacerts -file /etc/secrets/proxycert
-fi 
-
 # Launch Karaf using S2I script
 exec /usr/local/s2i/run

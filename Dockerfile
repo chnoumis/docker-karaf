@@ -39,6 +39,10 @@ COPY deploy-run.sh ${DEPLOY_DIR}/deploy-run.sh
 RUN chmod a+x ${DEPLOY_DIR}/deploy-run.sh \
  && chmod -R a+rwX ${DEPLOY_DIR}
 
+# Install Certificates
+COPY RapidSSL_SHA256_CA_G2.bundle ${DEPLOY_DIR}/RapidSSL_SHA256_CA_G2.bundle
+RUN keytool -import -alias alias -noprompt -storepass changeit -keystore /usr/lib/jvm/java-1.8.0-openjdk/jre/lib/security/cacerts -file ${DEPLOY_DIR}/RapidSSL_SHA256_CA_G2.bundle
+
 # S2I requires a numeric, non-0 UID
 USER 1000
 
