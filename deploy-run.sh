@@ -3,6 +3,7 @@
 DIR="/deployments"
 
 erb ${DIR}/karaf/build/etc/users.properties.erb > ${DIR}/karaf/etc/users.properties
+erb ${DIR}/karaf/build/etc/org.ops4j.pax.logging.cfg.erb > ${DIR}/karaf/etc/org.ops4j.pax.logging.cfg
 cp -f ${DIR}/karaf/build/bin/setenv ${DIR}/karaf/bin/setenv
 
 DIR=${DEPLOY_DIR:-${DIR}/karaf/deploy}
